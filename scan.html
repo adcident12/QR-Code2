@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Scan QR CODE</title>
+    <!-- Style CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- FontGoogle CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Javascript local -->
+    <script type="text/javascript" src="js/adapter.min.js"></script>
+    <script type="text/javascript" src="js/instascan.js"></script>
+    <script type="text/javascript" src="js/QrCodeScanner.js"></script>
+  </head>
+  <body class="cont">
+    <div class="container">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Generate QR CODE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="scan.html">Scan QR CODE <i class="fas fa-camera"></i><span id= "totalCamera" style="font-size: 12px;"></span></a>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-sm-6 mt-5 mb-1">
+                <div class="float-sm-right">
+                    <div class="form-group">
+                        <label><i class="fas fa-camera"></i> Switch Camera</label>
+                	    <select id="webcameraChanger" onchange="cameraChange($(this).val());"  class="form-control btn btn-info"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-5 mb-1"></div>
+            <div class="col-sm-6">
+                <video id="webcameraPreview" playsinline autoplay controls muted loop style="width: 100%;"></video>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Device number</th>
+                            <th scope="col">Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
